@@ -6,12 +6,27 @@ function computerPlay() {
 
 let computerSelection = computerPlay();
 
-console.log(computerSelection);
+let playerScore = 0;
+let computerScore = 0;
 
-let playerInput = prompt("Choose rock, paper, or scissors");
-let playerSelection = playerInput.toLowerCase();
+function game() {
+  for (i = 1; i <= 5; i++) {
+    let playerInput = prompt("Choose rock, paper, or scissors");
+    let playerSelection = playerInput.toLowerCase();
+    console.log(computerSelection);
+    console.log(playerSelection);
+    console.log(oneRound(playerSelection, computerSelection));
+    console.log(playerScore);
+    console.log(computerScore);
+  }
+  if (computerScore > playerScore) {
+    console.log("You lose!!!!");
+  } else if (computerScore < playerScore) {
+    console.log("You win!!!!!");
+  }
+}
 
-console.log(playerSelection);
+console.log(game());
 
 //one round that takes player selection and computer selection
 //return string that declares winner of round
@@ -24,22 +39,28 @@ function oneRound(playerSelection, computerSelection) {
       result = "It's a tie!";
     } else if (computerSelection === "paper") {
       result = "You lose!";
+      computerScore++;
     } else if (computerSelection === "scissors") {
       result = "You win!";
+      playerScore++;
     }
   } else if (playerSelection === "paper") {
     if (computerSelection === "rock") {
       result = "You win!";
+      playerScore++;
     } else if (computerSelection === "paper") {
       result = "It's a tie!";
     } else if (computerSelection === "scissors") {
       result = "You lose!";
+      computerScore++;
     }
   } else if (playerSelection === "scissors") {
     if (computerSelection === "rock") {
       result = "You lose!";
+      computerScore++;
     } else if (computerSelection === "paper") {
       result = "You win!";
+      playerScore++;
     } else if (computerSelection === "scissors") {
       result = "It's a tie!";
     }
@@ -48,5 +69,3 @@ function oneRound(playerSelection, computerSelection) {
   }
   return result;
 }
-
-console.log(oneRound(playerSelection, computerSelection));
