@@ -1,3 +1,15 @@
+const body = document.getElementsByTagName("body")[0];
+
+const container = document.getElementById("container");
+container.style.backgroundColor = "red";
+
+const container2 = document.createElement("div");
+
+body.appendChild(container2);
+
+let endResult = document.createElement("p");
+container2.appendChild(endResult);
+
 let playerScore = 0;
 let computerScore = 0;
 
@@ -86,9 +98,12 @@ function oneRound(e) {
   } else {
     console.log("baa");
   }
-  console.log(result);
+  endResult.innerText = result;
   console.log(`Player score: ${playerScore}`);
   console.log(`Computer score: ${computerScore}`);
   console.log("");
-  return result;
 }
+
+container.appendChild(rockButton);
+container.appendChild(paperButton);
+container.appendChild(scissorsButton);
