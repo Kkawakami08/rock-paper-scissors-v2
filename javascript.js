@@ -13,15 +13,21 @@ function game() {
   for (i = 1; i <= 5; i++) {
     let playerInput = prompt("Choose rock, paper, or scissors");
     let playerSelection = playerInput.toLowerCase();
-    console.log(computerSelection);
-    console.log(playerSelection);
+    console.log(`Computer chose: ${computerSelection}`);
+    console.log(`You chose: ${playerSelection}`);
     console.log(oneRound(playerSelection, computerSelection));
-    console.log(playerScore);
-    console.log(computerScore);
+    console.log(`Your score: ${playerScore}`);
+    console.log(`Computer's score: ${computerScore}`);
   }
   if (computerScore > playerScore) {
+    console.log(
+      `Final score: Computer = ${computerScore} Human = ${playerScore}`
+    );
     console.log("You lose!!!!");
   } else if (computerScore < playerScore) {
+    console.log(
+      `Final score: Computer = ${computerScore} Human = ${playerScore}`
+    );
     console.log("You win!!!!!");
   }
 }
