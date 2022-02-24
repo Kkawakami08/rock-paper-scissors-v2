@@ -1,17 +1,27 @@
+let playerScore = 0;
+let computerScore = 0;
+
 const body = document.getElementsByTagName("body")[0];
 
 const container = document.getElementById("container");
-container.style.backgroundColor = "red";
 
 const container2 = document.createElement("div");
 
 body.appendChild(container2);
 
 let endResult = document.createElement("p");
+endResult.id = "endResult";
+endResult.innerText = "Rock, paper, scissors... Shoot!";
 container2.appendChild(endResult);
 
-let playerScore = 0;
-let computerScore = 0;
+let cScore = document.createElement("p");
+cScore.textContent = `Computer Score: ${computerScore}`;
+
+let pScore = document.createElement("p");
+pScore.textContent = `Player Score: ${playerScore}`;
+
+container2.appendChild(cScore);
+container2.appendChild(pScore);
 
 // function game() {
 //   for (i = 1; i <= 5; i++) {
@@ -99,8 +109,9 @@ function oneRound(e) {
     console.log("baa");
   }
   endResult.innerText = result;
-  console.log(`Player score: ${playerScore}`);
-  console.log(`Computer score: ${computerScore}`);
+  cScore.innerText = `Computer Score: ${computerScore}`;
+  pScore.innerText = `Player Score: ${playerScore}`;
+
   console.log("");
 }
 
