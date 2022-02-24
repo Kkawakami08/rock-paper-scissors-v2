@@ -1,52 +1,5 @@
-function computerPlay() {
-  const compArray = ["rock", "paper", "scissors"];
-  let randomSelection = compArray[Math.floor(Math.random() * compArray.length)];
-  return randomSelection;
-}
-
-let computerSelection = computerPlay();
-
 let playerScore = 0;
 let computerScore = 0;
-
-function oneRound(e) {
-  let result = "";
-
-  if (playerSelection === "rock") {
-    if (computerSelection === "rock") {
-      result = "It's a tie!";
-    } else if (computerSelection === "paper") {
-      result = "You lose!";
-      computerScore++;
-    } else if (computerSelection === "scissors") {
-      result = "You win!";
-      playerScore++;
-    }
-  } else if (playerSelection === "paper") {
-    if (computerSelection === "rock") {
-      result = "You win!";
-      playerScore++;
-    } else if (computerSelection === "paper") {
-      result = "It's a tie!";
-    } else if (computerSelection === "scissors") {
-      result = "You lose!";
-      computerScore++;
-    }
-  } else if (playerSelection === "scissors") {
-    if (computerSelection === "rock") {
-      result = "You lose!";
-      computerScore++;
-    } else if (computerSelection === "paper") {
-      result = "You win!";
-      playerScore++;
-    } else if (computerSelection === "scissors") {
-      result = "It's a tie!";
-    }
-  } else {
-    console.log("baa");
-  }
-  return result;
-}
 
 // function game() {
 //   for (i = 1; i <= 5; i++) {
@@ -80,3 +33,62 @@ paperButton.value = "paper";
 
 let scissorsButton = document.getElementById("scissorsbtn");
 scissorsButton.value = "scissors";
+
+rockButton.addEventListener("click", oneRound);
+paperButton.addEventListener("click", oneRound);
+scissorsButton.addEventListener("click", oneRound);
+
+function oneRound(e) {
+  function computerPlay() {
+    const compArray = ["rock", "paper", "scissors"];
+    let randomSelection =
+      compArray[Math.floor(Math.random() * compArray.length)];
+    return randomSelection;
+  }
+
+  let computerSelection = computerPlay();
+
+  console.log(`You chose: ${e.target.value}`);
+  console.log(`Computer chose: ${computerSelection}`);
+
+  let result = "";
+
+  if (e.target.value === "rock") {
+    if (computerSelection === "rock") {
+      result = "It's a tie!";
+    } else if (computerSelection === "paper") {
+      result = "You lose!";
+      computerScore++;
+    } else if (computerSelection === "scissors") {
+      result = "You win!";
+      playerScore++;
+    }
+  } else if (e.target.value === "paper") {
+    if (computerSelection === "rock") {
+      result = "You win!";
+      playerScore++;
+    } else if (computerSelection === "paper") {
+      result = "It's a tie!";
+    } else if (computerSelection === "scissors") {
+      result = "You lose!";
+      computerScore++;
+    }
+  } else if (e.target.value === "scissors") {
+    if (computerSelection === "rock") {
+      result = "You lose!";
+      computerScore++;
+    } else if (computerSelection === "paper") {
+      result = "You win!";
+      playerScore++;
+    } else if (computerSelection === "scissors") {
+      result = "It's a tie!";
+    }
+  } else {
+    console.log("baa");
+  }
+  console.log(result);
+  console.log(`Player score: ${playerScore}`);
+  console.log(`Computer score: ${computerScore}`);
+  console.log("");
+  return result;
+}
