@@ -9,35 +9,7 @@ let computerSelection = computerPlay();
 let playerScore = 0;
 let computerScore = 0;
 
-function game() {
-  for (i = 1; i <= 5; i++) {
-    let playerInput = prompt("Choose rock, paper, or scissors");
-    let playerSelection = playerInput.toLowerCase();
-    console.log(`Computer chose: ${computerSelection}`);
-    console.log(`You chose: ${playerSelection}`);
-    console.log(oneRound(playerSelection, computerSelection));
-    console.log(`Your score: ${playerScore}`);
-    console.log(`Computer's score: ${computerScore}`);
-  }
-  if (computerScore > playerScore) {
-    console.log(
-      `Final score: Computer = ${computerScore} Human = ${playerScore}`
-    );
-    console.log("You lose!!!!");
-  } else if (computerScore < playerScore) {
-    console.log(
-      `Final score: Computer = ${computerScore} Human = ${playerScore}`
-    );
-    console.log("You win!!!!!");
-  }
-}
-
-console.log(game());
-
-//one round that takes player selection and computer selection
-//return string that declares winner of round
-//player selection case insensitive
-function oneRound(playerSelection, computerSelection) {
+function oneRound(e) {
   let result = "";
 
   if (playerSelection === "rock") {
@@ -75,3 +47,36 @@ function oneRound(playerSelection, computerSelection) {
   }
   return result;
 }
+
+// function game() {
+//   for (i = 1; i <= 5; i++) {
+//     let playerInput = prompt("Choose rock, paper, or scissors");
+//     let playerSelection = playerInput.toLowerCase();
+//     console.log(`Computer chose: ${computerSelection}`);
+//     console.log(`You chose: ${playerSelection}`);
+//     console.log(oneRound(playerSelection, computerSelection));
+//     console.log(`Your score: ${playerScore}`);
+//     console.log(`Computer's score: ${computerScore}`);
+//   }
+//   if (computerScore > playerScore) {
+//     console.log(
+//       `Final score: Computer = ${computerScore} Human = ${playerScore}`
+//     );
+//     console.log("You lose!!!!");
+//   } else if (computerScore < playerScore) {
+//     console.log(
+//       `Final score: Computer = ${computerScore} Human = ${playerScore}`
+//     );
+//     console.log("You win!!!!!");
+//   }
+// }
+
+// console.log(game());
+let rockButton = document.getElementById("rockbtn");
+rockButton.value = "rock";
+
+let paperButton = document.getElementById("paperbtn");
+paperButton.value = "paper";
+
+let scissorsButton = document.getElementById("scissorsbtn");
+scissorsButton.value = "scissors";
