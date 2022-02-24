@@ -79,13 +79,20 @@ function oneRound(e) {
     }
   }
   endResult.innerText = result;
+  endResult.style.fontWeight = "bold";
   cScore.innerText = `Computer Score: ${computerScore}`;
   pScore.innerText = `Your Score: ${playerScore}`;
 
   if (computerScore == 5) {
     endResult.innerText = "Computer Wins!";
+    rockButton.disabled = true;
+    paperButton.disabled = true;
+    scissorsButton.disabled = true;
   } else if (playerScore == 5) {
     endResult.innerText = "You win!";
+    rockButton.disabled = true;
+    paperButton.disabled = true;
+    scissorsButton.disabled = true;
   }
 }
 
